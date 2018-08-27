@@ -1,0 +1,29 @@
+{
+  "name": "workplace-server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "4.13.3",
+    "fs": "0.0.2",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
+    "ping": "^0.2.2",
+    "react-loading": "^2.0.3",
+    "sqlite3": "^4.0.2"
+  },
+  "scripts": {
+    "start": "npm-run-all -p server client",
+    "server": "nodemon server/server.js",
+    "client": "node server/start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.9.0"
+  }
+}

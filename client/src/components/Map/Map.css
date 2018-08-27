@@ -1,0 +1,11 @@
+.mapboxgl-map {
+  height: 100%;
+}
+
+.mapboxgl-popup {
+  z-index: 999;
+}
+
+.mapboxgl-canvas-container.mapboxgl-interactive, .mapboxgl-ctrl-nav-compass{
+  /* cursor: crosshair !important; */
+}

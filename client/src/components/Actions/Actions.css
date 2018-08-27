@@ -1,0 +1,58 @@
+.actionsContainer{
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}
+
+.extraActions{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  opacity: 1;
+  transform: translateX(0);
+
+  transition: all 0.3s ease-out;
+}
+
+.extraActions button{
+  margin: 16px;
+}
+
+.hidden{
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.ActionButton{
+  z-index: 100;
+  transition: all 0.3s ease-out !important;
+}
+
+.ActionButton.active{
+  transform: rotate(45deg);
+}
+
+.addBusinessForm{
+  position: fixed;
+  width: 100%;
+  height: 0;
+  left: 0;
+  bottom: 0;
+
+  background: white;
+
+  transition: all 0.3s ease-out;
+}
+
+.addBusinessForm.open{
+  width: 100%;
+  height: 325px;
+}
+
+
+.formContainer{
+  max-width: 512px;
+  width: 90%;
+  margin: 0 auto;
+}

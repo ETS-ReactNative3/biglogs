@@ -1,0 +1,35 @@
+.errorBanner{
+  position: absolute;
+  width: 100%;
+  top: -48px;
+  min-height: 48px;
+
+  z-index: 1000000;
+
+  background: red;
+
+  transition: top 0.3s ease-out;
+}
+
+.errorBanner p{
+  margin-top: 16px;
+  color: white;
+  font-weight: bold;
+  /* display: inline-block; */
+  width: 90%;
+}
+
+.errorBanner button{
+  border: 1px solid white;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  color: red;
+  background: white;
+}
+
+.errorBanner.show{
+  top:0px;
+}
