@@ -1,13 +1,13 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import {Marker} from 'react-mapbox-gl';
 import './BusinessMarker.css'
 
-const BusinessMarker = ({name, lat, lng}) => {
-  console.log({lat,lng});
+const BusinessMarker = ({bID, name, coordinates, onClick, up}) => {
+  // console.log({coordinates});
   return(
-    <Marker coordinates={{lat, lng}} offset={[0, -8]}>
-      <Avatar className="businessMarker" style={{background: "white", color: "#333", overflow: "initial"}}>{name !== "" ? name[0].toUpperCase(): ""}</Avatar>
+    <Marker coordinates={coordinates} offset={[0, -8]} onClick={(e)=>onClick(e, bID)}>
+      <div className="businessMarker" style={{background: up ? "linear-gradient(#2383c6, #2383c5)" : "#e17055"}}>{name !== "" ? name[0].toUpperCase(): ""}</div>
     </Marker>
   )
 };

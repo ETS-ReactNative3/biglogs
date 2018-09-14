@@ -1,0 +1,38 @@
+.NewBusinessForm{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:32px;
+  left:0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1000000;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.3s ease-out;
+}
+
+.NewBusinessForm.open{
+  top:0;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.formContainer{
+  width: 60%;
+  min-width: 512px;
+  margin: 25% auto;
+  background: white;
+  padding: 32px;
+}
+
+.ipSeparator{
+  margin:0;
+  display: inline-block;
+  width: 5%;
+  font-size: 2.5em;
+  top: 8px;
+  position: relative;
+  font-weight: lighter;
+  color: gray;
+}

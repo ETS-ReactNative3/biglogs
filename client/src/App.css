@@ -6,7 +6,8 @@ body{
   text-align: center;
   height: 100vh;
 
-  background: lightgray;
+  /* background: lightgray; */
+  background: black;
 }
 
 .App-logo {

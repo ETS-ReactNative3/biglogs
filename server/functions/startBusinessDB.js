@@ -8,11 +8,13 @@ module.exports = () => {
 
     let sql = `CREATE TABLE IF NOT EXISTS businesses (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name STRING,
-        ip STRING,
-        gateway STRING,
-        lat FLOAT,
-        lng FLOAT
+        name TEXT,
+        ip TEXT,
+        gateway TEXT,
+        lat REAL,
+        lng REAL,
+        state TEXT,
+        uptime TEXT
       )`
 
     db.get(sql, (err, row)=>{

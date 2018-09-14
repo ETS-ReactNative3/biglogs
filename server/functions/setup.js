@@ -10,6 +10,8 @@ app.use(app.bodyParser.urlencoded({
 
 app.set("port", process.env.PORT || 3001);
 
+// app.io = require('socket.io')()
+// require('./setupSocketConnections')(app, 8000)
 
 //Set defaults for error handling.
 process.on('unhandledRejection', error => {

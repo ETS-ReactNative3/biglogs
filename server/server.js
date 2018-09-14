@@ -1,15 +1,30 @@
 const express = require("express");
 const path = require('path');
 const app = require('./functions/setup')
+require('dotenv').load();
 
-app.db = require('./functions/startDB')()
+//configure authentication tools
+app.jwt = require('jsonwebtoken')
+app.bcrypt = require('bcryptjs')
+app.JWTSECRET = process.env.JWTSECRET
 
-require('./functions/routes')(app)
+//setup Socket.
+app.io = require('./functions/socket-controller')
+app.io.connect()
 
-// require('./functions/stopDB')(app.db)
+//setup databases
+app.userDB = require('./functions/startUserDB')()
+app.businessDB = require('./functions/startBusinessDB')()
 
+//setup routes
+require('./routing')(app)
+
+// require('./functions/stopDB')(app.businessDB)
+
+//begin pinging businesses
 require('./functions/pingBusinesses')(app)
 
+//serve react client
 app.use(express.static(path.join(__dirname, "client/build")));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
