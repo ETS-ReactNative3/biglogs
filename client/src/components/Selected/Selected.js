@@ -15,6 +15,8 @@ class Selected extends Component {
       ip:"",
       defaultGateway:""
     }
+
+    // console.log(business.uptime);
     return (
       <div className={"selected"+(this.props.business !== null ? " open" : "")}>
         <Button

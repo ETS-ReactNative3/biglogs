@@ -4,17 +4,17 @@ import './Graph.css'
 const Graph = ({data, height, width, showTime}) => {
 
   let blocks = [], times = []
-  console.log(data);
+  // console.log(data);
   if(!data) data = []
   data.forEach((unit, i)=>{
-    let power = (i>0) ? data[i-1].power : 2
-
-    power += unit.state ? 1 : -1
-
-    if(power > 3) power = 3
-    if(power < 0) power = 0
-
-    data[i].power = power
+    // let power = (i>0) ? data[i-1].power : 2
+    //
+    // power += unit.state ? 1 : -1
+    //
+    // if(power > 3) power = 3
+    // if(power < 0) power = 0
+    //
+    let power = data[i].power
 
     let color = unit.state,
         hours = unit.time.getHours().toString(),
@@ -22,8 +22,8 @@ const Graph = ({data, height, width, showTime}) => {
 
     let time = hours+":"+(minutes === "0" ? "00" : minutes)
 
-    blocks.unshift(<div key={i} className={"unit "+(color)+" power"+unit.power}></div>)
-    times.unshift(<span className="graphTime" key={i}><p>{time}</p></span>)
+    blocks.push(<div key={i} className={"unit "+(color)+" power"+unit.power}></div>)
+    times.push(<span className="graphTime" key={i}><p>{time}</p></span>)
   })
 
   return (

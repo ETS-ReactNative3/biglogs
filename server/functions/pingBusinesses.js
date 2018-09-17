@@ -39,6 +39,46 @@ module.exports = (app) => {
       })
       .then(()=>{
         console.log("final", pings)
+        let updates = []
+
+        businesses.forEach((b, i)=>{
+          if(businesses[i].iState !== pings[i].ip || business[i].gState !== pings[i].gateway){
+            let timeStamp = new Date().toISOString() + "|" + pings[i].ip + "|" + pings[i].gateway
+            let uptimeString = businesses[i].uptime
+
+            if(uptimeString.length >= 600){
+              let uptimeArr = uptimeString.split(', ')
+              uptimeArr.shift()
+
+              uptimeString = ""
+              uptimeArr.forEach((value)=>{
+                if(uptimeString === "") uptimeString = value
+                else uptimeString = uptimeString+', '+value
+              })
+            }
+
+            uptimeString = (uptimeString !== "") ? uptimeString+', '+timeStamp : timeStamp
+
+            let sql = `UPDATE businesses
+            SET iState = "${pings[i].ip}",
+                gState = "${pings[i].gateway}",
+                uptime = "${uptimeString}"
+            WHERE name = "${businesses[i].name}"`
+
+            let sql2 = `SELECT * FROM businesses WHERE name = "${businesses[i].name}"`
+
+            //figure out how to return the document being updated and store it in an array
+            //for batch proccessing
+            updates.push(request.get(app.businessDB, sql).then(()=>request.get(app.businessDB, sql2)))
+          }
+        })
+
+        return Promise.all(updates)
+      })
+      .then((updates)=>{
+        // console.log(updates, updates.length);
+        //send the array of updated businesses to all connected clients
+        if(updates.length > 0) app.io.updateBusinesses(updates)
       })
 
 
@@ -94,5 +134,5 @@ module.exports = (app) => {
       //   if(updates.length > 0) app.io.updateBusinesses(updates)
       // })
     })
-  }, 3000/*300000*/)
+  }, 30000/*300000*/)
 }

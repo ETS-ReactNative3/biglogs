@@ -1,5 +1,6 @@
 export const NETSTATES = {
   UP: 1,
   IPDOWN: 0,
-  GATEWAYDOWN: -1
+  GATEWAYDOWN: -1,
+  NODATA: null
 }

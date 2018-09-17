@@ -13,7 +13,8 @@ module.exports = () => {
         gateway TEXT,
         lat REAL,
         lng REAL,
-        state TEXT,
+        iState BOOLEAN,
+        gState BOOLEAN,
         uptime TEXT
       )`
 

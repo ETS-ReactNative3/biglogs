@@ -2,7 +2,7 @@ import {NETSTATES} from '../Constants'
 
 const processBusinessUptimeData = (newData, businesses) => {
   console.log("starting");
-  console.log(newData, businesses);
+  // console.log(newData, businesses);
 
   if(!businesses) businesses = []
 
@@ -18,7 +18,8 @@ const processBusinessUptimeData = (newData, businesses) => {
       let split = value.split('|')
       uptime.push({
         time: new Date(split[0]),
-        state: split[1]
+        iState: split[1] === "true",
+        gState: split[2] === "true"
       })
     })
 
@@ -29,13 +30,13 @@ const processBusinessUptimeData = (newData, businesses) => {
     // return b;
     let index = businesses.findIndex((business)=>(business.name === b.name))
 
-    console.log(index);
+    // console.log(index);
 
     if(index > -1) businesses[index] = b
     else businesses.push(b)
   })
 
-  console.log(businesses);
+  // console.log(businesses);
 
   return businesses
 }
@@ -55,7 +56,7 @@ function createGraphOfLast4Hours(uptime){
   mins = ((10-mins) % 10)+mins-10;
   currentTime.setMinutes(mins)
 
-  for(let i = 0; i < 24; i++){
+  for(let i = 24; i > 0; i--){
     let maxTime, minTime
     maxTime = new Date(currentTime.getTime())
     minTime = new Date(currentTime.getTime())
@@ -65,15 +66,22 @@ function createGraphOfLast4Hours(uptime){
 
     //if an entry is less than the current time, but more than the next time,
     //put it in the array and set the time to the minimum rounded time
+    // console.log(uptime);
+    console.log(minTime.getHours()+":"+minTime.getMinutes());
     let entriesInRange = uptime.filter(entry => {
+      // console.log(entry.time.getMinutes(), maxTime.getMinutes(), minTime.getMinutes(), entry.time < maxTime && entry.time > minTime);
       return(entry.time < maxTime && entry.time > minTime)
     })
 
-    let downEntries = entriesInRange.filter(entry => entry.state === NETSTATES.IPDOWN)
-    lastState = downEntries.length ? NETSTATES.IPDOWN : lastState
 
-    downEntries = entriesInRange.filter(entry => entry.state === NETSTATES.GATEWAYDOWN)
-    lastState = downEntries.length ? NETSTATES.GATEWAYDOWN : lastState
+    if(entriesInRange.length){
+      let ipEntries = entriesInRange.filter(entry => entry.iState === true) === entriesInRange.length
+      let gatewayEntries = entriesInRange.filter(entry => entry.gState === true) === entriesInRange.length
+
+      if(ipEntries && gatewayEntries) lastState = NETSTATES.UP
+      else if(!gatewayEntries) lastState = NETSTATES.GATEWAYDOWN
+      else if(!ipEntries && gatewayEntries) lastState = NETSTATES.IPDOWN
+    }else lastState = NETSTATES.NODATA
 
     switch(lastState){
       case NETSTATES.UP:
