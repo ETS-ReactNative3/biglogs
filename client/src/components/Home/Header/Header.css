@@ -1,0 +1,10 @@
+.header{
+  background-color: #d08b5a;
+  height: 64px;
+}
+
+.app-logo{
+  float: left;
+  margin-left: 8px;
+  margin-top: 8px;
+}

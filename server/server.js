@@ -22,7 +22,7 @@ require('./routing')(app)
 // require('./functions/stopDB')(app.businessDB)
 
 //begin pinging businesses
-require('./functions/pingBusinesses')(app)
+// require('./functions/pingBusinesses')(app)
 
 //serve react client
 app.use(express.static(path.join(__dirname, "client/build")));
