@@ -1,7 +1,7 @@
 import React from 'react';
 import './LogList.css'
 
-const LogList = ({}) => (
+const LogList = () => (
   <div></div>
 );
 

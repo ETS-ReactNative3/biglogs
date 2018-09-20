@@ -1,0 +1,10 @@
+.sidebar{
+  position: absolute;
+  background-color: #fbf7d8;
+  height: 100%;
+  width: 256px;
+}
+
+.businessListing h3{
+  font-family: 'Nixie One', cursive;
+}

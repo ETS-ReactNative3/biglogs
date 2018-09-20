@@ -7,9 +7,9 @@ import Home from './components/Home/Home'
 // import connectSocket from './functions/connectSocket'
 // import disconnectSocket from './functions/disconnectSocket'
 
-import ErrorBanner from './components/ErrorBanner/ErrorBanner'
+// import ErrorBanner from './components/ErrorBanner/ErrorBanner'
 
-import Auth from './components/Auth/Auth'
+// import Auth from './components/Auth/Auth'
 
 class App extends Component {
   render() {

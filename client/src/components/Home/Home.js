@@ -7,7 +7,7 @@ import Sidebar from './Sidebar/Sidebar'
 import {Button, ToggleSwitch} from '../Globals/Globals'
 import LogList from './LogList/LogList'
 
-const Home = ({}) => (
+const Home = () => (
   <div className="content-container">
     <Header/>
     <Sidebar/>
