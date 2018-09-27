@@ -1,7 +1,52 @@
 .graph{
-
+  height: 8px;
+  width: 100%;
+  /* background: gray; */
 }
 
-.Graph .unit{
+.graph.full{
+  height: 32px;
+}
 
+.graph .unit{
+  width: 4.16%;
+  height: 100%;
+  /* display:inline-block; */
+  float: left;
+}
+
+.graph.full .unit{
+  width: 3.16%;
+  margin-right: 1%
+}
+
+.state-up, .state-problems, .state-critical{
+  vertical-align: bottom;
+}
+
+.state-up{
+  background-color: #8cc63e;
+}
+
+.state-problems{
+  background-color: #cea25d;
+}
+
+.state-critical{
+  background-color: #e17055;
+}
+
+.graph.full .state-up{
+  height: 10.6px;
+  margin-top: 21.4px;
+}
+
+.graph.full .state-problems{
+  height: 21.2px;
+  margin-top: 10.8px;
+}
+
+.graph.full .state-critical{
+  height: 32px;
+  margin-top: 0px;
 }

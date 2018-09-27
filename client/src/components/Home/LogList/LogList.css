@@ -1,0 +1,56 @@
+.logContainer{
+  padding-top: 48px;
+}
+
+.log{
+  padding: 16px 32px;
+  height: 64px;
+  vertical-align: top;
+}
+
+.log .icon, .log .name, .log .graphContainer{
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  top:0;
+  vertical-align: middle;
+}
+
+.log .icon{
+  width: 10%;
+  height: 100%;
+  padding-top:16px;
+}
+
+.log .name{
+  width: 35%;
+  text-align:left;
+
+  font-family: 'Nixie One', cursive;
+  color: #5e3a2c;
+}
+
+.log .graphContainer{
+  width: 55%;
+}
+
+.log h3{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  width:100%;
+}
+
+
+.log-up{
+  background-color: #dce7c2;
+}
+
+.log-issues{
+  background-color: #e8d4b5;
+}
+
+.log-critical{
+  background-color: #f7dcd1;
+}

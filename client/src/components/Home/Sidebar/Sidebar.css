@@ -2,9 +2,42 @@
   position: absolute;
   background-color: #fbf7d8;
   height: 100%;
-  width: 256px;
+  width: 25%;
+}
+
+.sidebar .buttonContainer{
+  margin: 16px 8px;
+  text-align: left;
+}
+
+.businessListing{
+  box-sizing:border-box;
+  height: 64px;
+  padding: 12px;
+  text-align: left;
+}
+
+.businessListing .left{
+  float: left;
+  width: 15%;
+  margin-right: 2%;
+}
+
+.businessListing .right{
+  float: left;
+  width: 83%;
 }
 
 .businessListing h3{
   font-family: 'Nixie One', cursive;
+  display: inline-block;
+  margin: 0;
+  color: #5e3a2c;
+  margin-bottom: 2px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  width:100%;
 }
