@@ -19,7 +19,7 @@
 .log .icon{
   width: 10%;
   height: 100%;
-  padding-top:16px;
+  padding-top:8px;
 }
 
 .log .name{
@@ -43,14 +43,11 @@
 }
 
 
-.log-up{
-  background-color: #dce7c2;
-}
+.log-up{background-color: #dce7c2;}
+.log-up .log-stateIcon{background-color: #8cc63e;}
 
-.log-issues{
-  background-color: #e8d4b5;
-}
+.log-problems{background-color: #e8d4b5;}
+.log-problems .log-stateIcon{background-color: #cea25d;}
 
-.log-critical{
-  background-color: #f7dcd1;
-}
+.log-critical{background-color: #f7dcd1;}
+.log-critical .log-stateIcon{background-color: #e17055;}

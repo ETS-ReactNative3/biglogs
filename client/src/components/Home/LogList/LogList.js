@@ -21,7 +21,7 @@ const LogList = () => (
     {logs.map((log, i)=>(
       <div className={"log log-"+(convertStateToClass(log.state))} key={i}>
         <div className="icon">
-          <RandomTestIcon style={{width: 32, height: 32}}/>
+          <RandomTestIcon imageStyle={{width: 32, height: 32}}/>
         </div>
         <div className="name">
           <h3>{log.name}</h3>

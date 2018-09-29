@@ -1,8 +1,25 @@
-.logs{
+.content-container{
+  position: absolute;
   width: 75%;
   margin-left: 25%;
+  top:0;
+  padding-top: 64px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.logs{
+  position: relative;
+  height: 50%;
 }
 
 .homeHeader{
   padding: 16px 8px;
+}
+
+
+.map-container{
+  width: 100%;
+  height:50%;
+  background-color: #8fa887;
 }

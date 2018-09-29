@@ -46,14 +46,22 @@ export const StateIcon = ({state, style}) => (
   />
 );
 
-export const RandomTestIcon = ({style}) => (
-  <img
-    className="stateIcon"
-    style={{...style}}
-    src={(()=>{
-      let paths = ['/favicons/android-chrome-192x192.png']
-      return paths[Math.round(Math.random()*(paths.length-1))]
-    })()}
-    alt="This is just a test"
-  />
+export const RandomTestIcon = ({stateClass, style, imageStyle}) => (
+  <div className={"log-stateIcon "+(stateClass)} style={{...style}}>
+    <img
+      style={{...imageStyle}}
+      src={(()=>{
+        let paths = [
+          '/log-icons/computer-icon.png',
+          '/log-icons/network-icon.png',
+          '/log-icons/register-icon.png',
+          '/log-icons/router-icon.png',
+          '/log-icons/store-icon.png'
+        ]
+
+        return paths[Math.round(Math.random()*(paths.length-1))]
+      })()}
+      alt="This is just a test"
+    />
+  </div>
 );

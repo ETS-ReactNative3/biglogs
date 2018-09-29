@@ -1,6 +1,9 @@
 .header{
   background-color: #d08b5a;
   height: 64px;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
 }
 
 .app-logo{

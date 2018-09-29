@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, {ZoomControl} from "react-mapbox-gl";
-import BusinessMarker from '../BusinessMarker/BusinessMarker'
+import BusinessMarker from './BusinessMarker'
 // import { Cluster } from "react-mapbox-gl";
 // import {Marker} from "react-mapbox-gl"
 import './Map.css'
@@ -25,7 +25,7 @@ class Map extends Component {
 
   onStyleLoad = (map)=>{
     this.setState({map})
-    this.props.finishedLoading()
+    // this.props.finishedLoading()
   }
 
   componentWillReceiveProps(nextProps){
@@ -51,7 +51,7 @@ class Map extends Component {
     return (
       <MapCanvas {...mapProps} onClick={this.addBusiness} onStyleLoad={this.onStyleLoad}>
         {/* <Cluster ClusterMarkerFactory={ClusterMarker}> */}
-          {this.props.businesses.map((data, i)=>{
+          {/* {this.props.businesses.map((data, i)=>{
             // console.log("data", data);
             return(
             <BusinessMarker
@@ -63,7 +63,7 @@ class Map extends Component {
               onClick={this.props.setSelectedBusiness}
             />
             // ClusterMarker({lat: data.lat, lng: data.lng})
-          )})}
+          )})} */}
         {/* </Cluster> */}
 
         <ZoomControl />
