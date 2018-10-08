@@ -21,5 +21,26 @@
 .map-container{
   width: 100%;
   height:50%;
-  background-color: #8fa887;
+  background-color: #b4d1a7;
+}
+
+.hideMapButton, .hideLogsButton{
+  position: absolute;
+  width: 48px;
+  height: 32px;
+  z-index: 1000000;
+  color: #8fa887;
+  border: none;
+}
+
+.hideMapButton{
+  left: 0;
+  background-color: #dce7c2;
+}
+
+.hideLogsButton{
+  right: 0;
+  transform: translateY(-32px);
+
+  background-color: #b4d1a7;
 }

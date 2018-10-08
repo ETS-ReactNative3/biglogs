@@ -33,6 +33,8 @@ class Home extends Component {
 
             <LogList/>
           </div>
+          <button className="hideMapButton">v</button>
+          <button className="hideLogsButton">^</button>
           <div className="map-container">
             <Map/>
           </div>
